@@ -1,4 +1,6 @@
 # ScrollHacks-MentalChatbot
+##Contributors
+ScrollHacks Team: Error 404
 
 ## Overview
 ScrollHacks-MentalChatbot is a mental health chatbot application built with Streamlit. It provides users with insights and analyses based on their interactions with the chatbot.
