@@ -1,66 +1,182 @@
-# ScrollHacks-MentalChatbot
-## Contributors
-ScrollHacks Team: Error 404
+
+
+# ScrollHacks - MentalChatbot
+
+## Team: Error 404 🚀
+
 - [Asmi Parikh](https://github.com/asmi902)
 - [Kayan Irani](https://github.com/KayanIrani)
 - [Samridhi Sinha](https://github.com/sam22ridhi)
 - [Surya Vemuri](https://github.com/suryavemuri30)
 - [Vidhi Damani](https://github.com/vidhi-damani)
-  
 
-## Overview
-ScrollHacks-MentalChatbot is a mental health chatbot application built with Streamlit. It provides users with insights and analyses based on their interactions with the chatbot.
+---
 
-Overview of the Mental Health Chatbot
-The Mental Health Chatbot is designed to offer personalized, immediate mental health support by simulating conversations with different types of mental health professionals or personas. It is built to provide users with emotional support, guidance, and resources for mental health-related queries.
+## 🌟 Overview
 
-Key Features:
-Multiple Therapist Types: The chatbot offers a variety of virtual therapist personas, including:
+**ScrollHacks-MentalChatbot** is a cutting-edge mental health chatbot designed to offer personalized emotional support and guidance. Built with **Streamlit**, this application provides insightful responses based on real-time user interactions, simulating conversations with various mental health professionals. Our tool aims to deliver immediate assistance for those seeking mental health support, emotional guidance, or simply a listening ear.
 
-Counsellor: Provides compassionate mental health support.
-Cognitive Behavioral Therapist: Focuses on challenging negative thoughts and promoting positive behavior changes.
-Student Counsellor: Assists with academic, social, and emotional challenges.
-Clinical Psychologist: Specializes in psychological assessments and therapy.
-Best Friend: Offers a more casual, friendly conversation for users seeking companionship.
-Multilingual Support:
+This project emerged victorious at the ScrollHacks Hackathon, showcasing our commitment to leveraging technology for mental health awareness and support.
 
-The chatbot is capable of responding in multiple languages, including English, Spanish, French, German, Chinese, and Hindi.
-This feature is particularly helpful in reaching a global user base and providing support to individuals in their native language.
-Natural Conversations:
+---
 
-The chatbot can simulate ongoing conversations with users, helping them feel heard and understood.
-It uses AI to remember past interactions in the chat session, improving context-aware responses.
-Customizable Responses:
+### 🔑 Key Features
 
-Each therapist persona has a tailored communication style, ensuring that the responses feel appropriate for the persona selected by the user.
-The AI uses predefined templates for each therapist, ensuring consistency and quality of responses.
+#### 1. **Multiple Virtual Therapist Personas**
+The chatbot offers five distinct virtual therapist personas to cater to different user needs:
 
-## Requirements
-- Python 3.7 or later
-- pip (Python package installer)
-- Packages listed in `requirements.txt`
+- **Counsellor**: Compassionate listener providing general mental health support.
+- **Cognitive Behavioral Therapist (CBT)**: Focuses on identifying negative thoughts and promoting behavioral changes.
+- **Student Counsellor**: Specialized support for academic, social, and emotional challenges faced by students.
+- **Clinical Psychologist**: Offers psychological assessments and clinical therapy.
+- **Best Friend**: A casual, friendly persona for users seeking companionship.
 
-## Step 1: Cloning the Repository
-After cloning the repository, navigate to the project directory using the terminal or command prompt:
+#### 2. **Multilingual Support**
+Supports conversations in multiple languages, including:
+- English
+- Spanish
+- French
+- German
+- Chinese
+- Hindi
+
+This feature ensures that users from around the world can receive support in their native language.
+
+#### 3. **Natural Conversations**
+The chatbot engages in continuous, context-aware conversations, helping users feel understood and validated. The AI remembers previous exchanges within a session, providing a more human-like experience.
+
+#### 4. **Customizable Responses**
+Each persona has a unique communication style to align with user expectations. The responses are based on predefined templates tailored for each therapist type, ensuring consistent and high-quality interaction.
+
+---
+
+## 🔗 Orkes Integration
+
+**Orkes** is integrated into our chatbot workflow to streamline operations and enhance performance. With Orkes, we leverage workflow automation for better management of conversation flows and task execution.
+
+### Key Benefits of Orkes Integration:
+- **Workflow Management**: Orkes allows for easy orchestration of the chatbot's tasks and responses, ensuring efficient handling of user inquiries.
+- **Scalability**: The integration enables the chatbot to handle multiple users simultaneously, providing timely support.
+- **Real-time Monitoring**: With Orkes, we can monitor the workflow in real-time, enabling quick responses to any issues that may arise.
+
+For more information on how Orkes powers our chatbot, you can visit the [Orkes Chatbot Workflow](https://play.orkes.io/workflowDef/chatbot_workflow/2).
+
+---
+
+## 💻 Where to Use
+
+You can interact with our Mental Health Chatbot through the following platforms:
+
+- **Hugging Face Space**: Access the chatbot directly at [MindMate on Hugging Face](https://huggingface.co/spaces/samiee2213/mindmate) for a user-friendly experience.
+- **Local Deployment**: Follow the installation guide below to run the chatbot on your local machine.
+
+---
+
+## ⚙️ Installation Guide
+
+### 1. Clone the Repository
+
+To begin, clone the project repository to your local machine:
 
 ```bash
+git clone https://github.com/your-repo/ScrollHacks-MentalChatbot.git
 cd ScrollHacks-MentalChatbot
 ```
-## Step 2: Create a virtual enviroment in your current path
+
+### 2. Create and Activate a Virtual Environment
+
+It's best practice to use a virtual environment to manage dependencies. You can set up a virtual environment with the following commands:
+
+#### On Windows:
 ```bash
 python -m venv .venv
-```
-## Step 3: Run this command to activate your environment on windows machine in your command prompt
-```bash
 .venv\Scripts\activate
 ```
-## Step 4: pip install the required package using the below command after activating the virtual environment:
+
+#### On MacOS/Linux:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install Required Packages
+
+With the virtual environment activated, install the necessary dependencies using:
 
 ```bash
 pip install -r requirements.txt
 ```
-## Step 5: Run the streamlit application using the below command:
+
+### 4. Run the Application
+
+Once the dependencies are installed, launch the chatbot by running:
 
 ```bash
 streamlit run app.py
 ```
+
+---
+
+## 🛠 Technologies Used
+
+- **Python 3.7+**: The core programming language for backend development.
+- **Streamlit**: A fast, easy way to build custom ML/AI web applications.
+- **Natural Language Processing (NLP)**: AI-powered responses to simulate mental health therapy.
+- **Multilingual NLP**: To facilitate conversations in various languages.
+- **Orkes**: For workflow management and real-time monitoring of chatbot operations.
+
+---
+
+## 🧠 How It Works
+
+1. **User Interaction**: The user starts interacting with the chatbot by selecting their preferred virtual therapist persona.
+2. **Language Choice**: The user can select their preferred language for communication.
+3. **Contextual Conversations**: The chatbot engages in a back-and-forth conversation, providing personalized responses based on the therapist persona.
+4. **Therapeutic Suggestions**: Based on the user’s inputs, the chatbot suggests actionable steps, resources, and motivational insights.
+
+---
+
+## 💡 Use Cases
+
+- Immediate mental health support for users in distress.
+- Personalized guidance for students facing academic or emotional challenges.
+- A safe space for users to express their feelings and receive emotional validation.
+- Multilingual therapy for a global audience.
+
+---
+
+## 📋 Future Enhancements
+
+- **Voice Integration**: Allowing users to speak with the chatbot for a more interactive experience.
+- **Sentiment Analysis**: Advanced tracking of user mood over time, providing more tailored responses.
+- **Appointment Scheduler**: Integration with mental health professionals for scheduling follow-up sessions.
+- **Expanded Multilingual Support**: Adding more languages to reach a broader audience.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from the open-source community. Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Submit a pull request.
+
+For major changes, please open an issue to discuss what you’d like to implement.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+## 🙌 Acknowledgments
+
+- Mental health professionals who helped guide the chatbot's therapeutic direction.
+- Open-source libraries and tools used in the development of this project.
+- ScrollHacks Hackathon organizers for the platform to build impactful solutions.
+
+---
