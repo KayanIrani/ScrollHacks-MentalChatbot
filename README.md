@@ -49,7 +49,8 @@ Supports conversations in multiple languages, including:
 This feature ensures that users from around the world can receive support in their native language.
 
 #### 3. **Natural Conversations**
-![image](https://github.com/user-attachments/assets/950f99
+![image](https://github.com/user-attachments/assets/950f99)
+
 The chatbot engages in continuous, context-aware conversations, helping users feel understood and validated. The AI remembers previous exchanges within a session, providing a more human-like experience.
 
 #### 4. **Customizable Responses**
