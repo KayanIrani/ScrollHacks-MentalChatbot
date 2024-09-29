@@ -1,0 +1,505 @@
+{
+  "createTime": 1727611616248,
+  "updateTime": 0,
+  "name": "chatbot_workflow",
+  "description": "workflow for AI/Deep Learning/NLP/CV with dynamic task handling, retries, and error handling",
+  "version": 2,
+  "tasks": [
+    {
+      "name": "get_user_model_selection",
+      "taskReferenceName": "get_user_model_selection",
+      "inputParameters": {
+        "inputType": "user_input",
+        "question": "Please select a model: AI, Deep Learning, NLP, or Computer Vision?"
+      },
+      "type": "SIMPLE",
+      "decisionCases": {},
+      "defaultCase": [],
+      "forkTasks": [],
+      "startDelay": 0,
+      "joinOn": [],
+      "optional": false,
+      "defaultExclusiveJoinTask": [],
+      "asyncComplete": false,
+      "loopOver": [],
+      "onStateChange": {},
+      "permissive": false
+    },
+    {
+      "name": "get_user_data_input",
+      "taskReferenceName": "get_user_data_input",
+      "inputParameters": {
+        "inputType": "user_input",
+        "question": "Please provide the input data for the selected model:"
+      },
+      "type": "SIMPLE",
+      "decisionCases": {},
+      "defaultCase": [],
+      "forkTasks": [],
+      "startDelay": 0,
+      "joinOn": [],
+      "optional": false,
+      "defaultExclusiveJoinTask": [],
+      "asyncComplete": false,
+      "loopOver": [],
+      "onStateChange": {},
+      "permissive": false
+    },
+    {
+      "name": "get_current_time",
+      "taskReferenceName": "get_current_time",
+      "inputParameters": {
+        "current_time": "${workflow.startTime}"
+      },
+      "type": "SIMPLE",
+      "decisionCases": {},
+      "defaultCase": [],
+      "forkTasks": [],
+      "startDelay": 0,
+      "joinOn": [],
+      "optional": false,
+      "defaultExclusiveJoinTask": [],
+      "asyncComplete": false,
+      "loopOver": [],
+      "onStateChange": {},
+      "permissive": false
+    },
+    {
+      "name": "load_environment_variables",
+      "taskReferenceName": "load_environment_variables",
+      "inputParameters": {
+        "api_key": [
+          "YOUR_API_KEY"
+        ],
+        "database_path": [
+          "YOUR_DATABASE_PATH"
+        ]
+      },
+      "type": "SIMPLE",
+      "decisionCases": {},
+      "defaultCase": [],
+      "forkTasks": [],
+      "startDelay": 0,
+      "joinOn": [],
+      "optional": false,
+      "defaultExclusiveJoinTask": [],
+      "asyncComplete": false,
+      "loopOver": [],
+      "onStateChange": {},
+      "permissive": false
+    },
+    {
+      "name": "decision_task",
+      "taskReferenceName": "decision_task",
+      "inputParameters": {
+        "selectedModel": "${get_user_model_selection.output.response}"
+      },
+      "type": "DECISION",
+      "caseValueParam": "selectedModel",
+      "decisionCases": {
+        "AI": [
+          {
+            "name": "ai_model_selection_task",
+            "taskReferenceName": "ai_model_selection_task",
+            "inputParameters": {
+              "message": "You selected AI. Selecting AI model..."
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "ai_model_run_task",
+            "taskReferenceName": "ai_model_run_task",
+            "inputParameters": {
+              "model_name": "AI Model",
+              "data": "${get_user_data_input.output.response}",
+              "api_key": "${load_environment_variables.output.api_key[0]}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "retryCount": 3,
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "display_ai_results",
+            "taskReferenceName": "display_ai_results",
+            "inputParameters": {
+              "message": "AI Model executed successfully. Fetching output...",
+              "results": "${ai_model_run_task.output.results}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          }
+        ],
+        "Deep Learning": [
+          {
+            "name": "dl_model_selection_task",
+            "taskReferenceName": "dl_model_selection_task",
+            "inputParameters": {
+              "message": "You selected Deep Learning. Selecting DL model..."
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "dl_model_run_task",
+            "taskReferenceName": "dl_model_run_task",
+            "inputParameters": {
+              "model_name": "Deep Learning Model",
+              "data": "${get_user_data_input.output.response}",
+              "api_key": "${load_environment_variables.output.api_key[0]}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "retryCount": 3,
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "display_dl_results",
+            "taskReferenceName": "display_dl_results",
+            "inputParameters": {
+              "message": "DL Model executed successfully. Fetching output...",
+              "results": "${dl_model_run_task.output.results}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          }
+        ],
+        "NLP": [
+          {
+            "name": "nlp_model_selection_task",
+            "taskReferenceName": "nlp_model_selection_task",
+            "inputParameters": {
+              "message": "You selected NLP. Selecting NLP model..."
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "nlp_model_preprocess_task",
+            "taskReferenceName": "nlp_model_preprocess_task",
+            "inputParameters": {
+              "message": "Preprocessing text data...",
+              "data": "${get_user_data_input.output.response}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "retryCount": 2,
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "nlp_model_run_task",
+            "taskReferenceName": "nlp_model_run_task",
+            "inputParameters": {
+              "model_name": "NLP Model",
+              "data": "${nlp_model_preprocess_task.output.processed_data}",
+              "api_key": "${load_environment_variables.output.api_key[0]}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "retryCount": 3,
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "display_nlp_results",
+            "taskReferenceName": "display_nlp_results",
+            "inputParameters": {
+              "message": "NLP Model executed successfully. Fetching output...",
+              "results": "${nlp_model_run_task.output.results}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          }
+        ],
+        "Computer Vision": [
+          {
+            "name": "cv_model_selection_task",
+            "taskReferenceName": "cv_model_selection_task",
+            "inputParameters": {
+              "message": "You selected Computer Vision. Selecting CV model..."
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "cv_model_preprocess_task",
+            "taskReferenceName": "cv_model_preprocess_task",
+            "inputParameters": {
+              "message": "Preprocessing image data...",
+              "data": "${get_user_data_input.output.response}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "retryCount": 2,
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "cv_model_run_task",
+            "taskReferenceName": "cv_model_run_task",
+            "inputParameters": {
+              "model_name": "Computer Vision Model",
+              "data": "${cv_model_preprocess_task.output.processed_data}",
+              "api_key": "${load_environment_variables.output.api_key[0]}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "retryCount": 3,
+            "onStateChange": {},
+            "permissive": false
+          },
+          {
+            "name": "display_cv_results",
+            "taskReferenceName": "display_cv_results",
+            "inputParameters": {
+              "message": "CV Model executed successfully. Fetching output...",
+              "results": "${cv_model_run_task.output.results}"
+            },
+            "type": "SIMPLE",
+            "decisionCases": {},
+            "defaultCase": [],
+            "forkTasks": [],
+            "startDelay": 0,
+            "joinOn": [],
+            "optional": false,
+            "defaultExclusiveJoinTask": [],
+            "asyncComplete": false,
+            "loopOver": [],
+            "onStateChange": {},
+            "permissive": false
+          }
+        ]
+      },
+      "defaultCase": [
+        {
+          "name": "error_task",
+          "taskReferenceName": "error_task",
+          "inputParameters": {
+            "errorMessage": "Invalid model selection. Please choose either AI, Deep Learning, NLP, or Computer Vision."
+          },
+          "type": "SIMPLE",
+          "decisionCases": {},
+          "defaultCase": [],
+          "forkTasks": [],
+          "startDelay": 0,
+          "joinOn": [],
+          "optional": false,
+          "defaultExclusiveJoinTask": [],
+          "asyncComplete": false,
+          "loopOver": [],
+          "onStateChange": {},
+          "permissive": false
+        }
+      ],
+      "forkTasks": [],
+      "startDelay": 0,
+      "joinOn": [],
+      "optional": false,
+      "defaultExclusiveJoinTask": [],
+      "asyncComplete": false,
+      "loopOver": [],
+      "onStateChange": {},
+      "permissive": false
+    },
+    {
+      "name": "save_session",
+      "taskReferenceName": "save_session",
+      "inputParameters": {
+        "session_data": {
+          "user_input": "${get_user_data_input.output.response}",
+          "model_response": [
+            "${ai_model_run_task.output.results}",
+            "${dl_model_run_task.output.results}",
+            "${nlp_model_run_task.output.results}",
+            "${cv_model_run_task.output.results}"
+          ],
+          "timestamp": "${get_current_time.output.current_time}"
+        },
+        "database_path": "${load_environment_variables.output.database_path[0]}"
+      },
+      "type": "SIMPLE",
+      "decisionCases": {},
+      "defaultCase": [],
+      "forkTasks": [],
+      "startDelay": 0,
+      "joinOn": [],
+      "optional": false,
+      "defaultExclusiveJoinTask": [],
+      "asyncComplete": false,
+      "loopOver": [],
+      "retryCount": 2,
+      "onStateChange": {},
+      "permissive": false
+    },
+    {
+      "name": "summary_task",
+      "taskReferenceName": "summary_task",
+      "inputParameters": {
+        "message": "Workflow completed successfully!",
+        "workflowStatus": "COMPLETED"
+      },
+      "type": "SIMPLE",
+      "decisionCases": {},
+      "defaultCase": [],
+      "forkTasks": [],
+      "startDelay": 0,
+      "joinOn": [],
+      "optional": false,
+      "defaultExclusiveJoinTask": [],
+      "asyncComplete": false,
+      "loopOver": [],
+      "onStateChange": {},
+      "permissive": false
+    }
+  ],
+  "inputParameters": [
+    "inputType",
+    "question",
+    "current_time",
+    "api_key",
+    "database_path",
+    "selectedModel",
+    "model_name",
+    "data",
+    "user_input",
+    "model_response",
+    "timestamp",
+    "session_data"
+  ],
+  "outputParameters": {
+    "workflowStatus": "${summary_task.output.workflowStatus}",
+    "finalResults": "${save_session.output.session_data}",
+    "sessionId": "${save_session.output.session_id}"
+  },
+  "schemaVersion": 2,
+  "restartable": true,
+  "workflowStatusListenerEnabled": false,
+  "ownerEmail": "ausllyyudkbh@gmail.com",
+  "timeoutPolicy": "ALERT_ONLY",
+  "timeoutSeconds": 0,
+  "variables": {},
+  "inputTemplate": {},
+  "enforceSchema": true
+}
