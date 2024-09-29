@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import re
 from dotenv import load_dotenv
 from langchain.schema import HumanMessage, SystemMessage, AIMessage
 from langchain.chat_models import AzureChatOpenAI,ChatOpenAI
@@ -21,7 +22,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 # Load environment variables
 load_dotenv()
 st.set_page_config(page_title="MindMate", layout="wide", initial_sidebar_state="expanded")
-api_key = "AIzaSyCYKhYSpmg9vjUVhrf3nZjEBxl07-rnWes"
+api_key = os.getenv("api_key")
 # CSS styles
 css = '''
 <style>
@@ -505,6 +506,7 @@ therapist_templates = {
         8. Validate the user's feelings and experiences.
         9. Offer coping strategies and self-care tips.
         10. Maintain confidentiality and respect the user's privacy.
+        11. Do not use emojis
       Translate and respond in {language}.
         Current conversation:
         {chat_history}
@@ -525,6 +527,7 @@ therapist_templates = {
         8. Offer step-by-step guidance for CBT exercises.
         9. Encourage users to set and work towards achievable goals.
         10. Provide positive reinforcement and celebrate progress.
+        11. Do not use emojis
       Translate and Respond in {language}.
         Current conversation:
         {chat_history}
@@ -545,6 +548,7 @@ therapist_templates = {
         8. Provide tips for managing stress and anxiety.
         9. Encourage students to set academic and personal goals.
         10. Validate students' feelings and experiences.
+        11. Do not use emojis
       Translate and Respond in {language}.
         Current conversation:
         {chat_history}
@@ -565,6 +569,7 @@ therapist_templates = {
         8. Offer step-by-step guidance for therapeutic exercises.
         9. Encourage users to set and work towards achievable goals.
         10. Provide positive reinforcement and celebrate progress.
+        11. Do not use emojis
       Translate and Respond in {language}.
         Current conversation:
         {chat_history}
@@ -586,6 +591,7 @@ therapist_templates = {
         8. Provide meaningful and contextually appropriate support.
         9. Maintain a casual and approachable tone.
         10. Share personal anecdotes and experiences to build rapport.
+        11. Do not use emojis
         Translate and respond in {language}
         Current conversation:
         {chat_history}
@@ -622,6 +628,23 @@ therapists = [
     }
 ]
 
+def remove_emojis(text):
+    # Regular expression pattern for matching emojis
+    emoji_pattern = re.compile(
+        "["                  # Start of the character class
+        u"\U0001f600-\U0001f64f"  # emoticons
+        u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+        u"\U0001F680-\U0001F6FF"  # transport & map symbols
+        u"\U0001F700-\U0001F77F"  # alchemical symbols
+        u"\U0001F780-\U0001F7FF"  # Geometric Shapes Extended
+        u"\U0001F800-\U0001F8FF"  # Supplemental Arrows-C
+        u"\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
+        u"\U0001FA00-\U0001FA6F"  # Chess Symbols
+        u"\U00002700-\U000027BF"  # Dingbats
+        u"\U000024C2-\U0001F251"  # Enclosed characters
+        "]+", flags=re.UNICODE)
+
+    return emoji_pattern.sub(r'', text)  # Remove emojis
 
 
 # Callback functions
@@ -953,8 +976,19 @@ elif page == "Sessions":
             submit = st.button("Ask the question")
 
             if submit:
-                response = get_chatmodel_response(input)
+                cleaned_input = remove_emojis(input)
+                
+                response = get_chatmodel_response(cleaned_input) 
                 save_session(session)
+                filename = f"{session['title']}.txt"
+                save_conversation_to_file(session['flowmessages'], filename)
+                with open(filename, 'rb') as file:
+                    st.download_button(
+                        label="Download Conversation",
+                        data=file,
+                        file_name=filename,
+                        mime='text/plain'
+                    )
                 st.rerun()
             if "flowmessages" in session:
                 st.subheader("Chat")
@@ -971,17 +1005,6 @@ elif page == "Sessions":
                 save_session(session)
                 st.rerun()
 
-            # Save conversation to file
-            if st.button("Download Conversation"):
-                filename = f"{session['title']}.txt"
-                save_conversation_to_file(session['flowmessages'], filename)
-                with open(filename, 'rb') as file:
-                    st.download_button(
-                        label="Download Conversation",
-                        data=file,
-                        file_name=filename,
-                        mime='text/plain'
-                    )
 
 
 # Define other tool functions here...
@@ -1120,16 +1143,16 @@ elif page == "Insights":
                 ax.axis('equal')
                 st.pyplot(fig)
 
-                st.markdown("### Mood Over Time")
-                mood_timeline = pd.Series([msg.content.lower() for msg in selected_session['messages'] if isinstance(msg, HumanMessage)]).apply(
-                    lambda x: 1 if any(word in x for word in ['happy', 'good', 'great', 'awesome']) else (
-                        0 if any(word in x for word in ['okay', 'fine', 'alright', 'normal']) else -1
-                    )
-                )
-                mood_timeline.index = pd.to_datetime(mood_timeline.index, unit='s')
-                mood_timeline_df = mood_timeline.reset_index()
-                mood_timeline_df.columns = ['Time', 'Mood']
-                st.line_chart(mood_timeline_df.set_index('Time'))
+                # st.markdown("### Mood Over Time")
+                # mood_timeline = pd.Series([msg.content.lower() for msg in selected_session['messages'] if isinstance(msg, HumanMessage)]).apply(
+                #     lambda x: 1 if any(word in x for word in ['happy', 'good', 'great', 'awesome']) else (
+                #         0 if any(word in x for word in ['okay', 'fine', 'alright', 'normal']) else -1
+                #     )
+                # )
+                # mood_timeline.index = pd.to_datetime(mood_timeline.index, unit='s')
+                # mood_timeline_df = mood_timeline.reset_index()
+                # mood_timeline_df.columns = ['Time', 'Mood']
+                # st.line_chart(mood_timeline_df.set_index('Time'))
             else:
                 st.write("No mood data to display.")
         else:
