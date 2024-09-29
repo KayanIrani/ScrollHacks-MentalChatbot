@@ -1,5 +1,5 @@
 # ScrollHacks-MentalChatbot
-##Contributors
+## Contributors
 ScrollHacks Team: Error 404
 
 ## Overview
