@@ -136,6 +136,18 @@ streamlit run app.py
 
 ---
 
+# Images Preview:
+![image](https://github.com/user-attachments/assets/cfe9c2e1-1c8e-4736-b9f3-674479cb1883)
+![image](https://github.com/user-attachments/assets/950f9945-012d-4bfd-bb4e-726c12161879)
+![image](https://github.com/user-attachments/assets/5840a6e0-f883-479f-b52d-c67a4de7a2d7)
+![image](https://github.com/user-attachments/assets/30643134-dd4c-429c-87bd-311d43fe7bce)
+![image](https://github.com/user-attachments/assets/72142117-2d99-4f9c-8d25-d8946d273c50)
+
+---
+# Chat Scenarios:
+![image](https://github.com/user-attachments/assets/84332167-239e-4f63-ba53-95156dcd8c0e)
+![image](https://github.com/user-attachments/assets/2a175cbb-aecd-459b-8b57-f4b7065001fd)
+
 ## 💡 Use Cases
 
 - Immediate mental health support for users in distress.
