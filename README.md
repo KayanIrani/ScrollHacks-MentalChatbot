@@ -77,7 +77,7 @@ chatbot_workflow
 - **Scalability**: The integration enables the chatbot to handle multiple users simultaneously, providing timely support.
 - **Real-time Monitoring**: With Orkes, we can monitor the workflow in real-time, enabling quick responses to any issues that may arise.
 
-For more information on how Orkes powers our chatbot, you can visit the [Orkes Chatbot Workflow](https://play.orkes.io/workflowDef/chatbot_workflow/2).
+For more information on how Orkes powers our chatbot, you can visit the [Orkes Chatbot Workflow](https://play.orkes.io/execution/1e90d034-7e61-11ef-bdd6-0e9cc282704b).
 
 ---
 
