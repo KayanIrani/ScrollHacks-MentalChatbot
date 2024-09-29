@@ -12,3 +12,9 @@ After cloning the repository, navigate to the project directory using the termin
 
 ```bash
 cd ScrollHacks-MentalChatbot
+```
+## Step 2: pip install the required package using the below command:
+
+```bash
+pip install -r requirements.txt
+```
