@@ -24,6 +24,9 @@ This project emerged victorious at the ScrollHacks Hackathon, showcasing our com
 ### 🔑 Key Features
 
 #### 1. **Multiple Virtual Therapist Personas**
+![image](https://github.com/user-attachments/assets/30643134-dd4c-429c-87bd-311d43fe7bce)
+<img width="1440" alt="Screenshot 2024-09-29 at 5 53 58 PM" src="https://github.com/user-attachments/assets/59812f6a-329d-4b36-a539-9f548d196c6e">
+
 The chatbot offers five distinct virtual therapist personas to cater to different user needs:
 
 - **Counsellor**: Compassionate listener providing general mental health support.
@@ -33,6 +36,8 @@ The chatbot offers five distinct virtual therapist personas to cater to differen
 - **Best Friend**: A casual, friendly persona for users seeking companionship.
 
 #### 2. **Multilingual Support**
+<img width="1006" alt="Screenshot 2024-09-29 at 5 55 58 PM" src="https://github.com/user-attachments/assets/86a9a447-2183-4730-834a-cf8c9081b3f2">
+45-012d-4bfd-bb4e-726c12161879)
 Supports conversations in multiple languages, including:
 - English
 - Spanish
@@ -44,9 +49,15 @@ Supports conversations in multiple languages, including:
 This feature ensures that users from around the world can receive support in their native language.
 
 #### 3. **Natural Conversations**
+![image](https://github.com/user-attachments/assets/950f99
 The chatbot engages in continuous, context-aware conversations, helping users feel understood and validated. The AI remembers previous exchanges within a session, providing a more human-like experience.
 
 #### 4. **Customizable Responses**
+
+# Chat Scenarios:
+![image](https://github.com/user-attachments/assets/84332167-239e-4f63-ba53-95156dcd8c0e)
+![image](https://github.com/user-attachments/assets/2a175cbb-aecd-459b-8b57-f4b7065001fd)
+
 Each persona has a unique communication style to align with user expectations. The responses are based on predefined templates tailored for each therapist type, ensuring consistent and high-quality interaction.
 
 ---
@@ -138,15 +149,11 @@ streamlit run app.py
 ---
 
 # Images Preview:
-![image](https://github.com/user-attachments/assets/950f9945-012d-4bfd-bb4e-726c12161879)
 ![image](https://github.com/user-attachments/assets/5840a6e0-f883-479f-b52d-c67a4de7a2d7)
-![image](https://github.com/user-attachments/assets/30643134-dd4c-429c-87bd-311d43fe7bce)
 ![image](https://github.com/user-attachments/assets/72142117-2d99-4f9c-8d25-d8946d273c50)
 
 ---
-# Chat Scenarios:
-![image](https://github.com/user-attachments/assets/84332167-239e-4f63-ba53-95156dcd8c0e)
-![image](https://github.com/user-attachments/assets/2a175cbb-aecd-459b-8b57-f4b7065001fd)
+
 
 ## 💡 Use Cases
 
