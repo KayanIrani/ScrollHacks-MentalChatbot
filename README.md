@@ -66,6 +66,10 @@ Each persona has a unique communication style to align with user expectations. T
 ## 🔗 Orkes Integration
 ![WhatsApp Image 2024-09-29 at 17 44 46](https://github.com/user-attachments/assets/e01b994c-3a10-46be-8a89-ebdc2f53ff43)
 
+https://play.orkes.io/execution/1e90d034-7e61-11ef-bdd6-0e9cc282704b
+
+chatbot_workflow
+1e90d034-7e61-11ef-bdd6-0e9cc282704b
 
 **Orkes** is integrated into our chatbot workflow to streamline operations and enhance performance. With Orkes, we leverage workflow automation for better management of conversation flows and task execution.
 
