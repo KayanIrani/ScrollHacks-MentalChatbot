@@ -1,6 +1,12 @@
 # ScrollHacks-MentalChatbot
 ## Contributors
 ScrollHacks Team: Error 404
+- [Asmi Parikh](https://github.com/asmi902)
+- [Kayan Irani](https://github.com/KayanIrani)
+- [Samridhi Sinha](https://github.com/sam22ridhi)
+- [Surya Vemuri](https://github.com/suryavemuri30)
+- [Vidhi Damani](https://github.com/vidhi-damani)
+  
 
 ## Overview
 ScrollHacks-MentalChatbot is a mental health chatbot application built with Streamlit. It provides users with insights and analyses based on their interactions with the chatbot.
